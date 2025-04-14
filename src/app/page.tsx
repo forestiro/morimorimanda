@@ -5,21 +5,20 @@ import Header from '@/components/Header';
 import PartnerLogos from '@/components/PartnerLogos';
 import FilterBar from '@/components/FilterBar';
 import GroupCard from '@/components/GroupCard';
-import UserIcon from '@/components/UserIcon'
 
 const iconImages = [
   '/images/icon/union.jpg',
   '/images/icon/inno-meet.jpg',
-  '/images/icon/プレビュー 2025-03-29 17.49.44.png',
-  '/images/icon/プレビュー 2025-03-29 17.49.40.png',
-  '/images/icon/プレビュー 2025-03-29 17.49.36.png',
-  '/images/icon/プレビュー 2025-03-29 17.49.33.png',
-  '/images/icon/プレビュー 2025-03-29 17.49.29.png',
-  '/images/icon/プレビュー 2025-03-29 17.49.26.png',
-  '/images/icon/プレビュー 2025-03-29 17.49.23.png',
-  '/images/icon/プレビュー 2025-03-29 17.49.20.png',
-  '/images/icon/プレビュー 2025-03-29 17.49.17.png',
-  '/images/icon/プレビュー 2025-03-29 17.49.15.png',
+  '/images/icon/preview_2025-03-29_17.49.15.png',
+  '/images/icon/preview_2025-03-29_17.49.17.png',
+  '/images/icon/preview_2025-03-29_17.49.20.png',
+  '/images/icon/preview_2025-03-29_17.49.23.png',
+  '/images/icon/preview_2025-03-29_17.49.26.png',
+  '/images/icon/preview_2025-03-29_17.49.29.png',
+  '/images/icon/preview_2025-03-29_17.49.33.png',
+  '/images/icon/preview_2025-03-29_17.49.36.png',
+  '/images/icon/preview_2025-03-29_17.49.40.png',
+  '/images/icon/preview-1744605657.png'
 ];
 
 // ランダムに画像を選択する関数
@@ -131,7 +130,6 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <UserIcon />
       <Header />
       <PartnerLogos />
       <FilterBar selectedFilters={selectedFilters} setSelectedFilters={setSelectedFilters} />

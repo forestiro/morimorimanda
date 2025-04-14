@@ -1,10 +1,11 @@
 'use client';
 
 import Link from 'next/link';
-import { Search, Bell, User, Menu } from 'lucide-react';
+import { Search, Bell } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import UserIcon from '@/components/UserIcon';
 
 const Header = () => {
   const [isSearchFocused, setIsSearchFocused] = useState(false);
@@ -73,20 +74,15 @@ const Header = () => {
               <Bell className="w-6 h-6 text-gray-600" />
               <span className="absolute top-0 right-0 h-2 w-2 bg-primary rounded-full"></span>
             </motion.button>
-            <motion.button
-              className="p-2 hover:bg-gray-100 rounded-full"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              <User className="w-6 h-6 text-gray-600" />
-            </motion.button>
-            <motion.button
-              className="p-2 hover:bg-gray-100 rounded-full md:hidden"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              <Menu className="w-6 h-6 text-gray-600" />
-            </motion.button>
+            <Link href="/user">
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                className="cursor-pointer"
+              >
+                <UserIcon />
+              </motion.div>
+            </Link>
           </div>
         </div>
       </div>

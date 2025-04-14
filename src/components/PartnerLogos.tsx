@@ -14,10 +14,13 @@ const PartnerLogos = () => {
   const [hoveredPartner, setHoveredPartner] = useState<number | null>(null);
 
   return (
-    <div className="bg-white py-4">
+    <div className="bg-white py-4 mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">
+          パートナー企業
+        </h2>
         <div className="relative">
-          <div className="flex space-x-8 overflow-x-auto pb-4">
+          <div className="flex space-x-8 overflow-x-auto pb-4 justify-center">
             {partners.map((partner) => (
               <div
                 key={partner.id}

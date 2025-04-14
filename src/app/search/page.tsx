@@ -11,7 +11,7 @@ import { useState, useEffect } from 'react'
 const mockGroups = [
   {
     id: '1',
-    name: 'サークルA',
+    name: '技術革新サークル',
     description: 'テクノロジーを通じて社会に貢献する',
     image: 'https://placehold.co/600x400',
     university: '東京大学',
@@ -23,7 +23,7 @@ const mockGroups = [
   },
   {
     id: '2',
-    name: 'サークルB',
+    name: 'エコロジー推進団体',
     description: '環境問題に取り組む学生団体',
     image: 'https://placehold.co/600x400',
     university: '京都大学',
@@ -35,7 +35,7 @@ const mockGroups = [
   },
   {
     id: '3',
-    name: 'サークルC',
+    name: 'グローバル交流会',
     description: '国際交流を促進する学生団体',
     image: 'https://placehold.co/600x400',
     university: '大阪大学',
@@ -44,6 +44,30 @@ const mockGroups = [
     activityStyle: 'ハイブリッド',
     rating: 4.8,
     memberCount: 40
+  },
+  {
+    id: '4',
+    name: 'ビジネス研究会',
+    description: '起業やビジネスについて学ぶ団体',
+    image: 'https://placehold.co/600x400',
+    university: '早稲田大学',
+    area: '東京都',
+    field: 'ビジネス',
+    activityStyle: 'ハイブリッド',
+    rating: 4.6,
+    memberCount: 35
+  },
+  {
+    id: '5',
+    name: '地域活性化プロジェクト',
+    description: '地域の課題解決に取り組む',
+    image: 'https://placehold.co/600x400',
+    university: '名古屋大学',
+    area: '愛知県',
+    field: '地域貢献',
+    activityStyle: 'オフライン',
+    rating: 4.4,
+    memberCount: 28
   }
 ]
 
@@ -54,17 +78,24 @@ export default function SearchPage() {
 
   useEffect(() => {
     if (query) {
-      const filtered = mockGroups.filter(group => 
-        group.name.toLowerCase().includes(query.toLowerCase()) ||
-        group.description.toLowerCase().includes(query.toLowerCase()) ||
-        group.university.toLowerCase().includes(query.toLowerCase()) ||
-        group.field.toLowerCase().includes(query.toLowerCase())
-      )
-      setFilteredGroups(filtered)
+      const searchTerms = query.toLowerCase().split(/\s+/);
+      const filtered = mockGroups.filter(group => {
+        const searchableText = [
+          group.name,
+          group.description,
+          group.university,
+          group.field,
+          group.area,
+          group.activityStyle
+        ].map(text => text.toLowerCase()).join(' ');
+        
+        return searchTerms.every(term => searchableText.includes(term));
+      });
+      setFilteredGroups(filtered);
     } else {
-      setFilteredGroups(mockGroups)
+      setFilteredGroups(mockGroups);
     }
-  }, [query])
+  }, [query]);
 
   return (
     <div className="min-h-screen bg-gray-50">

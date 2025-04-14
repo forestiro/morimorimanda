@@ -1,27 +1,15 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import { useRouter } from 'next/navigation'
-import Image from 'next/image'
+import { User } from 'lucide-react'
 
-export default function UserIcon() {
-  const router = useRouter()
+interface UserIconProps {
+  className?: string;
+}
 
+export default function UserIcon({ className = '' }: UserIconProps) {
   return (
-    <motion.div
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
-      onClick={() => router.push('/user')}
-      className="fixed top-20 right-4 z-50 cursor-pointer"
-    >
-      <div className="relative w-10 h-10 rounded-full overflow-hidden border-2 border-white shadow-lg">
-        <Image
-          src="https://placehold.co/100x100?text=User"
-          alt="ユーザーアイコン"
-          fill
-          className="object-cover"
-        />
-      </div>
-    </motion.div>
+    <div className={`relative flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 ${className}`}>
+      <User className="w-6 h-6 text-gray-600" />
+    </div>
   )
 } 

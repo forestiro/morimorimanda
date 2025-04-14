@@ -5,8 +5,8 @@ import { motion } from 'framer-motion';
 import { MapPin, Users, Lightbulb, Building2, MessageSquare } from 'lucide-react';
 import Link from 'next/link';
 
-interface GroupCardProps {
-  id: string;
+export interface GroupCardProps {
+  id: string | number;
   name: string;
   description: string;
   image: string;
