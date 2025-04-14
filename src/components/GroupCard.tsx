@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { MapPin, Users, Lightbulb, Building2, MessageSquare } from 'lucide-react';
+import { MapPin, Building2, Globe2, Users } from 'lucide-react';
 import Link from 'next/link';
 
 export interface GroupCardProps {
@@ -13,6 +13,9 @@ export interface GroupCardProps {
   university: string;
   area: string;
   field: string;
+  genre: string;
+  universityType: string;
+  activityArea: string;
   activityStyle: string;
 }
 
@@ -24,19 +27,18 @@ const GroupCard = ({
   university,
   area,
   field,
+  genre,
+  universityType,
+  activityArea,
   activityStyle,
 }: GroupCardProps) => {
   return (
     <Link href={`/groups/${id}`}>
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -20 }}
-        whileHover={{ y: -5 }}
-        transition={{ duration: 0.3 }}
-        className="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow overflow-hidden border border-gray-100 cursor-pointer"
+        whileHover={{ scale: 1.02 }}
+        className="bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden cursor-pointer h-full border border-gray-100"
       >
-        <div className="relative h-48 w-full">
+        <div className="relative h-48">
           <Image
             src={image}
             alt={name}
@@ -45,9 +47,9 @@ const GroupCard = ({
           />
         </div>
         <div className="p-4">
-          <h3 className="text-lg font-semibold text-gray-900 mb-2">{name}</h3>
+          <h3 className="text-lg font-bold text-gray-900 mb-2">{name}</h3>
           <p className="text-gray-600 text-sm mb-4 line-clamp-2">{description}</p>
-          
+
           <div className="space-y-2">
             <div className="flex items-center text-sm text-gray-500">
               <Building2 className="w-4 h-4 mr-2 text-primary" />
@@ -55,14 +57,14 @@ const GroupCard = ({
             </div>
             <div className="flex items-center text-sm text-gray-500">
               <MapPin className="w-4 h-4 mr-2 text-primary" />
-              <span>{area}</span>
+              <span>{activityArea}</span>
             </div>
             <div className="flex items-center text-sm text-gray-500">
-              <Lightbulb className="w-4 h-4 mr-2 text-primary" />
+              <Globe2 className="w-4 h-4 mr-2 text-primary" />
               <span>{field}</span>
             </div>
             <div className="flex items-center text-sm text-gray-500">
-              <MessageSquare className="w-4 h-4 mr-2 text-primary" />
+              <Users className="w-4 h-4 mr-2 text-primary" />
               <span>{activityStyle}</span>
             </div>
           </div>
